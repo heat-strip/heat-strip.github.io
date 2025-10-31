@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>&lt;heat-strip&gt; - 1D Heatmap Web Component</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="heat-strip.js"></script>
+</head>
+<body>
+    <header>
+        <h1>&lt;heat-strip&gt;</h1>
+        <p class="subtitle">A native Web Component for 1-dimensional heatmaps</p>
+    </header>
+
+    <main>
+        <section class="intro">
+            <h2>What is a Heat Strip?</h2>
+            <p>
+                A <strong>heat strip</strong> (also called a sequence map, status bar map, or timeline strip) 
+                is a 1-dimensional heatmap where each colored block represents a single unit in a series — 
+                e.g., a day, test, level, or metric sample.
+            </p>
+            <p>
+                The color represents the state/value:
+                <span class="status-badge ok">Green = OK</span>
+                <span class="status-badge warning">Yellow = Warning</span>
+                <span class="status-badge error">Red = Error</span>
+            </p>
+        </section>
+
+        <section class="demo">
+            <h2>Examples</h2>
+
+            <div class="example">
+                <h3>System Health (30 days)</h3>
+                <heat-strip data="ok,ok,ok,warning,ok,ok,error,ok,ok,ok,ok,ok,warning,ok,ok,ok,ok,ok,ok,ok,error,ok,ok,ok,ok,warning,ok,ok,ok,ok"></heat-strip>
+            </div>
+
+            <div class="example">
+                <h3>Test Results (20 tests)</h3>
+                <heat-strip data="ok,ok,ok,ok,error,ok,ok,ok,warning,ok,ok,ok,ok,ok,ok,ok,ok,error,ok,ok"></heat-strip>
+            </div>
+
+            <div class="example">
+                <h3>Performance Levels (15 samples)</h3>
+                <heat-strip data="ok,ok,warning,warning,error,error,warning,ok,ok,ok,warning,ok,ok,ok,ok"></heat-strip>
+            </div>
+
+            <div class="example">
+                <h3>All OK Status</h3>
+                <heat-strip data="ok,ok,ok,ok,ok,ok,ok,ok,ok,ok"></heat-strip>
+            </div>
+
+            <div class="example">
+                <h3>All Error Status</h3>
+                <heat-strip data="error,error,error,error,error,error,error,error"></heat-strip>
+            </div>
+
+            <div class="example">
+                <h3>Mixed Pattern</h3>
+                <heat-strip data="ok,warning,error,ok,warning,error,ok,warning,error,ok,warning,error"></heat-strip>
+            </div>
+
+            <div class="example">
+                <h3>Custom Size (Large)</h3>
+                <heat-strip data="ok,ok,warning,error,ok,warning,ok,error,ok,ok" size="large"></heat-strip>
+            </div>
+
+            <div class="example">
+                <h3>Custom Size (Small)</h3>
+                <heat-strip data="ok,ok,warning,error,ok,warning,ok,error,ok,ok" size="small"></heat-strip>
+            </div>
+        </section>
+
+        <section class="usage">
+            <h2>Usage</h2>
+            <pre><code>&lt;!-- Basic usage --&gt;
+&lt;heat-strip data="ok,ok,warning,error,ok"&gt;&lt;/heat-strip&gt;
+
+&lt;!-- With custom size --&gt;
+&lt;heat-strip data="ok,ok,warning,error,ok" size="large"&gt;&lt;/heat-strip&gt;
+&lt;heat-strip data="ok,ok,warning,error,ok" size="small"&gt;&lt;/heat-strip&gt;</code></pre>
+
+            <h3>Attributes</h3>
+            <ul>
+                <li><strong>data</strong> (required): Comma-separated list of states. Supported values: <code>ok</code>, <code>warning</code>, <code>error</code></li>
+                <li><strong>size</strong> (optional): Size of the blocks. Values: <code>small</code>, <code>medium</code> (default), <code>large</code></li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>Built with native Web Components • No dependencies required</p>
+    </footer>
+</body>
+</html>
