@@ -47,18 +47,6 @@ class HeatStrip extends HTMLElement {
     }
 
     /**
-     * Get color for a given state
-     */
-    getColor(state) {
-        const colors = {
-            'ok': '#22c55e',        // green
-            'warning': '#eab308',   // yellow
-            'error': '#ef4444'      // red
-        };
-        return colors[state.toLowerCase()] || '#94a3b8'; // default gray for unknown states
-    }
-
-    /**
      * Get block dimensions based on size
      */
     getDimensions(size) {
@@ -116,7 +104,6 @@ class HeatStrip extends HTMLElement {
 
         // Create blocks
         const blocks = data.map((state, index) => {
-            const color = this.getColor(state);
             return `<div class="heat-block" data-state="${state.toLowerCase()}" title="${state} (${index + 1})"></div>`;
         }).join('');
 
